@@ -1,0 +1,12 @@
+.div {
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 500px;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+body {
+  background-color: rgb(236, 168, 168);
+}
