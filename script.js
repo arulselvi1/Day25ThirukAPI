@@ -53,52 +53,63 @@ div10.setAttribute("class", "divmain10");
 div10.style.color = "green";
 div10.style.fontSize = "25px";
 
+var div11 = document.createElement("div");
+div11.setAttribute("class", "divmain11");
+div11.style.color = "red";
+div11.style.fontSize = "25px";
+div11.style.textShadow = "1px 2px red";
+div11.style.backgroundColor = "yellow";
 async function foo() {
   try {
     let kural_num = document.getElementById("t1").value;
-    let res =
-      await fetch(`https://api-thirukkural.vercel.app/api?num=${kural_num}
+    if (kural_num <= 1330) {
+      let res =
+        await fetch(`https://api-thirukkural.vercel.app/api?num=${kural_num}
     `);
-    let result = await res.json();
-    console.log(result);
+      let result = await res.json();
+      console.log(result);
 
-    div.innerHTML = `Kural Number:  ${result["number"]}`;
-    document.body.append(div);
+      div.innerHTML = `Kural Number:  ${result["number"]}`;
+      document.body.append(div);
 
-    div1.innerHTML = `The section (in Tamil) to which the poem belongs: ${result["sect_tam"]}`;
-    document.body.append(div1);
+      div1.innerHTML = `The section (in Tamil) to which the poem belongs: ${result["sect_tam"]}`;
+      document.body.append(div1);
 
-    div2.innerHTML = `The Chapter Group (in Tamil) to which the poem belongs
+      div2.innerHTML = `The Chapter Group (in Tamil) to which the poem belongs
     : ${result["chapgrp_tam"]}`;
-    document.body.append(div2);
+      document.body.append(div2);
 
-    div3.innerHTML = `The Chapter (in Tamil) to which the poem belongs: 
+      div3.innerHTML = `The Chapter (in Tamil) to which the poem belongs: 
     ${result["chap_tam"]}`;
-    document.body.append(div3);
+      document.body.append(div3);
 
-    div4.innerHTML = `The Line of the Poem(in Tamil): ${result["line1"]}  ${result["line2"]}`;
-    document.body.append(div4);
+      div4.innerHTML = `The Line of the Poem(in Tamil): ${result["line1"]}  ${result["line2"]}`;
+      document.body.append(div4);
 
-    div5.innerHTML = `The explanation (in Tamil) of the poem:${result["tam_exp"]}`;
-    document.body.append(div5);
+      div5.innerHTML = `The explanation (in Tamil) of the poem:${result["tam_exp"]}`;
+      document.body.append(div5);
 
-    div6.innerHTML = `The section (in English) to which the poem belongs
+      div6.innerHTML = `The section (in English) to which the poem belongs
     : ${result["sect_eng"]}`;
-    document.body.append(div6);
+      document.body.append(div6);
 
-    div7.innerHTML = `The Chapter Group (in English) to which the poem belongs
+      div7.innerHTML = `The Chapter Group (in English) to which the poem belongs
     : ${result["chapgrp_eng"]}`;
-    document.body.append(div7);
+      document.body.append(div7);
 
-    div8.innerHTML = `The Chapter (in English) to which the poem belongs
+      div8.innerHTML = `The Chapter (in English) to which the poem belongs
     : ${result["chap_eng"]}`;
-    document.body.append(div8);
+      document.body.append(div8);
 
-    div9.innerHTML = `The poem traslated to English: ${result["eng"]}`;
-    document.body.append(div9);
+      div9.innerHTML = `The poem traslated to English: ${result["eng"]}`;
+      document.body.append(div9);
 
-    div9.innerHTML = `The explanation (in English) of the poem: ${result["eng_exp"]}`;
-    document.body.append(div10);
+      div9.innerHTML = `The explanation (in English) of the poem: ${result["eng_exp"]}`;
+      document.body.append(div10);
+    } else {
+      div11.innerHTML = `There are 1330 Thirukkurals in Total. Result does not exist`;
+      document.body.append(div11);
+    }
   } catch (error) {
     console.log(error);
   }
